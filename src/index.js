@@ -1,3 +1,18 @@
-const titleElement = document.querySelector('#title')
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEF0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
 
-titleElement.style.color = 'blue'
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+const titleElement = document.querySelector('#title')
+const colorCode = '#' + makeid(6)
+
+titleElement.style.color = colorCode
+titleElement.innerHTML = `Hello World! ${colorCode}`
