@@ -1,12 +1,18 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
-  entry: {
-    main: './src/index.js',
-    myTest: './src/my-test.js'
-  },
+  entry: './src/index.js',
   output: {
-    filename: '[name].js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery'
+    })
+  ]
 }
