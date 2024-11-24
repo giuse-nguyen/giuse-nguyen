@@ -2,11 +2,16 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    myTest: './src/my-test.js'
+    home: './src/home.js',
+    about: './src/about.js'
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 }
